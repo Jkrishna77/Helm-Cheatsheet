@@ -1,0 +1,28 @@
+1. Install Chart:
+   helm install user-service ./user-service --namespace demo --create-namespace
+
+2. Dry-Run & Debug:
+   helm install user-service ./user-service -n demo --dry-run --debug
+
+3. Template Rendering:
+   helm template user-service ./user-service -n demo
+
+4. Upgrade:
+   helm upgrade user-service ./user-service -n demo --set replicaCount=3
+
+5. Rollback:
+   helm rollback user-service 1 -n demo
+
+6. Uninstall:
+   helm uninstall user-service -n demo
+
+7. Inspect Release:
+   helm get all user-service -n demo
+   helm get values user-service -n demo
+   helm get manifest user-service -n demo
+
+8. Lint Chart:
+   helm lint ./user-service
+
+9. Diff Upgrade:
+   helm diff upgrade user-service ./user-service -n demo --values values.yaml
