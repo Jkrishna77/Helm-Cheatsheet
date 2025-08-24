@@ -55,6 +55,15 @@ helm template user-service ./user-service -n demo
 ```
 Renders manifests from templates.
 
+## Helm Template vs Dry-Run & Debug
+
+| Command                                      | What it does                                      | Touches Cluster? |
+|-----------------------------------------------|---------------------------------------------------|------------------|
+| `helm template user-service ./user-service`   | Renders manifests locally, outputs YAML           | No               |
+| `helm install ... --dry-run --debug`          | Simulates install, shows rendered manifests & logs| No               |
+
+*Both commands help preview what will be deployed, but neither creates resources on the cluster.*
+
 ## Upgrade Chart
 ```bash
 helm upgrade user-service ./user-service -n demo --set replicaCount=3
